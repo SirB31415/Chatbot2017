@@ -1,4 +1,4 @@
-package chat.model;
+package chat.controller;
 
 import java.time.LocalDate;
 
