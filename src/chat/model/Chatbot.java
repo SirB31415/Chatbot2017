@@ -21,16 +21,16 @@ public class Chatbot
 	public Chatbot(String username)
 	{
 		this.movieList = null;
-		this.shoppingList = null;
+		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
-		this.questions = null;
+		this.questions = new String[4];
 		this.username = username;
 		this.content = null;
 		this.intro = null;
 		this.currentTime = null;
-		this.topics = null;
-		this.verbs = null;
+		this.topics = new String[4];
+		this.verbs = new String[4];
 		this.followUps = null;
 		
 		buildVerbs();
@@ -44,11 +44,16 @@ public class Chatbot
 		verbs[2] = "am ambivalent about";
 		verbs[3] = "am thinking about";
 	}
-
+	private void buildTopics()
+	{
+		topics[0] = "Theory of Calvin's Perpetual Virginity";
+		topics[1] = "Makai's Belief in Ghosts";
+		topics[2] = "Yael Getting into Yale";
+		topics[3] = "Parker's Narcissism";
+	}
 	private void buildMovieList()
 	{
-		movieList.add("Spiderman");
-		movieList.add("Hidden Figures");
+		
 	}
 	
 	private void buildShoppingList()
@@ -67,12 +72,32 @@ public class Chatbot
 	
 	private void buildQuestions()
 	{
-		
+		questions[0] = "What is the meaning of life?";
+		questions[1] = "What is the reason for existence?";
+		questions[2] = "Why is there something instead of nothing?";
+		questions[3] = "Why is Calvin such a terrible human being?";
 	}
-	
 	public String processConversation(String input)
 	{
-		return null;
+		String chatbotResponse = "";
+		chatbotResponse += "You said:" + "\n" + input + "\n";
+		chatbotResponse += buildChatbotResponse();
+		return chatbotResponse;
+	}
+	
+	private String buildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int) (Math.random() * verbs.length);
+		response += " " + topics[random] + ".\n";
+	
+		random = (int) (Math.random() * topics.length);
+		response += " " +topics[random] + ".\n";
+		
+		random = (int) (Math.random() * questions.length);
+		response += questions[random];
+		
+		return response;
 	}
 	
 	public boolean lengthChecker(String input)
@@ -129,13 +154,22 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if (exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
 		return false;
 	}
 
 	public boolean keyboardMashChecker(String sample)
 	{
+		if (sample.equals("sdf") || sample.equals("dfg") || sample.equals("cvb") || sample.equals(",./") || sample.equals("kjh") || sample.equals("DFG") || sample.equals("CVB") || sample.equals("KJH")) 
+		{
+			return true;
+		}
 		return false;
 	}
+	
 	
 	public List<Movie> getMovieList()
 	{

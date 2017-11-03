@@ -10,7 +10,7 @@ public class PopupDisplay
 	
 	public PopupDisplay()
 	{
-		icon = new ImageIcon(getClass().getResource("images/BANANA.gif"));
+		icon = new ImageIcon(getClass().getResource("images/hal.png"));
 		windowTitle = "Chatbot says";
 	}
 	
@@ -19,6 +19,7 @@ public class PopupDisplay
 		JOptionPane.showMessageDialog(null, message, windowTitle, JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 	
+//this creates the collectResponse method for the controller
 	public String collectResponse(String question)
 	{
 		String answer = "";

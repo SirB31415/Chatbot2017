@@ -18,7 +18,7 @@ public class Movie
 		this.genre = null;
 		this.ratingMPAA = null;
 		this.review = null;
-		this.length = -99;
+		this.length = 0;
 		this.releaseDate = null;
 		this.starScore = Double.NaN;
 	}
@@ -30,13 +30,13 @@ public class Movie
 
 	public String getGenre()
 	{
-		this.genre = "@@@@@@@";
+//		this.genre = "@@@@@@@";
 		return genre;
 	}
 
 	public String getRatingMPAA()
 	{
-		return null;
+		return ratingMPAA;
 	}
 
 	public String getReview()
@@ -46,7 +46,7 @@ public class Movie
 
 	public int getLength()
 	{
-		return -99999999;
+		return length;
 	}
 
 	public LocalDate getReleaseDate()
