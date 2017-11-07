@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
-	private List<Movie> movieList;
+	private List<String> movieList;
 	private List<String> shoppingList;
 	private List<String> cuteAnimalMemes;
 	private String [] verbs;
@@ -20,7 +20,7 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = null;
+		this.movieList = new ArrayList<String>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
@@ -33,6 +33,9 @@ public class Chatbot
 		this.verbs = new String[4];
 		this.followUps = null;
 		
+//		buildFollowups();
+		buildQuestions();
+		buildTopics();
 		buildVerbs();
 		buildShoppingList();
 	}
@@ -53,7 +56,13 @@ public class Chatbot
 	}
 	private void buildMovieList()
 	{
-		
+		movieList.add("Friday the Thirteenth");
+		movieList.add("Friday the Thirteenth II");
+		movieList.add("Friday the Thirteenth III");
+		movieList.add("Friday the Thirteenth IV");
+		movieList.add("Friday the Thirteenth V");
+		movieList.add("Friday the Thirteenth VI");
+		movieList.add("Friday the Thirteenth VII");
 	}
 	
 	private void buildShoppingList()
@@ -89,7 +98,7 @@ public class Chatbot
 	{
 		String response = "I ";
 		int random = (int) (Math.random() * verbs.length);
-		response += " " + topics[random] + ".\n";
+		response += " " + verbs[random];
 	
 		random = (int) (Math.random() * topics.length);
 		response += " " +topics[random] + ".\n";
@@ -104,7 +113,7 @@ public class Chatbot
 	{
 		boolean validLength = false;
 		
-		if (input != null && input.length() > 2)
+		if (input != null && input.length() > 1)
 		{
 				validLength = true;
 		}
@@ -149,6 +158,18 @@ public class Chatbot
 	
 	public boolean movieGenreChecker(String genre)
 	{
+		if (genre.equals(""))
+		{
+			return false;
+		}
+		if (genre.equals("Documentary"))
+		{
+			return true;
+		}
+		if (genre.equals("Thriller"))
+		{
+			return true;
+		}
 		return false;
 	}
 

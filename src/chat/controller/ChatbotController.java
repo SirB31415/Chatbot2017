@@ -2,18 +2,19 @@ package chat.controller;
 
 import chat.view.PopupDisplay;
 import chat.model.Chatbot;
-
+import chat.view.ChatFrame;
 public class ChatbotController
 {
 //this declares that the chatbot and popupdisplay exists
 	private Chatbot chatbot;
 	private PopupDisplay display;
-	
+	private ChatFrame appFrame;
 //this initializes the chatbot and popupdisplay for the Chatbot.java inside the chat.model
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("SuperGodAI");
 		display = new PopupDisplay();
+		appFrame = new ChatFrame();
 	}
 	public void start()
 	{
@@ -43,5 +44,13 @@ public class ChatbotController
 	public Chatbot getChatbot()
 	{
 		return chatbot;
+	}
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
+	public ChatFrame getChatFrame()
+	{
+		return appFrame;
 	}
 }
