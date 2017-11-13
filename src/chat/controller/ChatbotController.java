@@ -5,7 +5,7 @@ import chat.model.Chatbot;
 import chat.view.ChatFrame;
 public class ChatbotController
 {
-//this declares that the chatbot and popupdisplay exists
+//this declares that the chatbot and popupdisplay exist
 	private Chatbot chatbot;
 	private PopupDisplay display;
 	private ChatFrame appFrame;
