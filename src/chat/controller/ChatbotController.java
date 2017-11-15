@@ -14,7 +14,7 @@ public class ChatbotController
 	{
 		chatbot = new Chatbot("Papa Musk");
 		display = new PopupDisplay();
-		appFrame = new ChatFrame();
+		appFrame = new ChatFrame(this);
 	}
 	public void start()
 	{
