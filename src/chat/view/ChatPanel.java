@@ -27,13 +27,19 @@ public class ChatPanel extends JPanel
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 		
+		
+		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
 	private void setupPanel()
 	{
-		
+		this.setBackground(Color.CYAN);
+		this.setLayout(appLayout);
+		this.add(chatButton);
+		this.add(inputField);
+		this.add(chatArea);
 	}
 	private void setupLayout()
 	{
