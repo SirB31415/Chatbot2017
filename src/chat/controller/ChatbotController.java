@@ -12,7 +12,7 @@ public class ChatbotController
 //this initializes the chatbot and popupdisplay for the Chatbot.java inside the chat.model
 	public ChatbotController()
 	{
-		chatbot = new Chatbot("SuperGodAI");
+		chatbot = new Chatbot("Papa Musk");
 		display = new PopupDisplay();
 		appFrame = new ChatFrame();
 	}
@@ -21,11 +21,11 @@ public class ChatbotController
 //this makes a new variable called response that collects the response from the display created in popupdisplay.
 		String response = display.collectResponse("What do you wanna talk about?");
 		
-		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-		{
-			response = popupChat(response);
-			response = display.collectResponse(response);
-		}
+//		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
+//		{
+//			response = popupChat(response);
+//			response = display.collectResponse(response);
+//		}
 
 	}
 	
