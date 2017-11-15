@@ -27,15 +27,13 @@ public class ChatPanel extends JPanel
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 		
-		
-		
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
 	private void setupPanel()
 	{
-		this.setBackground(Color.CYAN);
+		this.setBackground(Color.BLACK);
 		this.setLayout(appLayout);
 		this.add(chatButton);
 		this.add(inputField);
@@ -43,7 +41,13 @@ public class ChatPanel extends JPanel
 	}
 	private void setupLayout()
 	{
-		
+		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);
+		appLayout.putConstraint(SpringLayout.WEST, inputField, 0, SpringLayout.WEST, chatArea);
+		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 33, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatArea, -10, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, chatButton, -32, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatArea);
 	}
 	private void setupListeners()
 	{
