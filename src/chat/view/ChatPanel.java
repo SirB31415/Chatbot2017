@@ -16,7 +16,7 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
-	
+
 	public ChatPanel(ChatbotController appController)
 	{
 		super();
@@ -30,15 +30,24 @@ public class ChatPanel extends JPanel
 		setupPanel();
 		setupLayout();
 		setupListeners();
-	}
+	} 
+	/**
+	 * This sets up the things inside the window.
+	 */
 	private void setupPanel()
 	{
-		this.setBackground(Color.BLACK);
+		this.setBackground(Color.RED);
 		this.setLayout(appLayout);
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
+		
 	}
+	/**
+	 * This holds all of the details generated from the design page.
+	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 0, SpringLayout.NORTH, chatButton);

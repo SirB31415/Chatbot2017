@@ -3,6 +3,7 @@ package chat.controller;
 import chat.view.PopupDisplay;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
+import chat.view.ChatPanel;
 public class ChatbotController
 {
 //this declares that the chatbot and popupdisplay exist
@@ -19,7 +20,7 @@ public class ChatbotController
 	public void start()
 	{
 //this makes a new variable called response that collects the response from the display created in popupdisplay.
-		String response = display.collectResponse("What do you wanna talk about?");
+//		String response = display.collectResponse("What do you wanna talk about?");
 		
 //		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 //		{
@@ -28,12 +29,20 @@ public class ChatbotController
 //		}
 
 	}
-	
+	/**
+	 * This makes a method with the type String and returns nothing
+	 * @param String input
+	 * @return null
+	 */
 	public String interactWithChatbot(String input)
 	{
 		return null;
 	}
-	
+	/**
+	 * This makes a private method that returns a String of type chat and takes from the method processConversation to make chatbotSays return  a String of type chat.
+	 * @param String chat
+	 * @return chatbotSays
+	 */
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";
@@ -41,14 +50,26 @@ public class ChatbotController
 		
 		return chatbotSays;
 	}
+	/**
+	 * 
+	 * @return chatbot
+	 */
 	public Chatbot getChatbot()
 	{
 		return chatbot;
 	}
+	/**
+	 * 
+	 * @return display
+	 */
 	public PopupDisplay getDisplay()
 	{
 		return display;
 	}
+	/**
+	 * 
+	 * @return appFrame
+	 */
 	public ChatFrame getChatFrame()
 	{
 		return appFrame;
