@@ -36,13 +36,25 @@ public class ChatbotController
 	 */
 	public String interactWithChatbot(String input)
 	{
-		return null;
+		String chatbotSays = "";
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		chatbotSays += chatbot.processConversation(input);
+		
+		return chatbotSays;
 	}
 	/**
 	 * This makes a private method that returns a String of type chat and takes from the method processConversation to make chatbotSays return  a String of type chat.
 	 * @param String chat
 	 * @return chatbotSays
 	 */
+	private void close()
+	{
+		display.displayText("bu-bye");
+		System.exit(0);
+	}
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";
