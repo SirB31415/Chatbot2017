@@ -162,6 +162,26 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
+		if (!input.contains("<") && !input.contains(">"))
+		{
+			return false;
+		}
+		else if (input.contains("<>"))
+		{
+			return false;
+		}
+		else if(input.contains(""))
+		{
+			return false;
+		}
+		else if (input.length() < 3)
+		{
+			return false;
+		}
+		if(input.contains("<A HREF=") && input.contains(">") && input.contains("</a>") && input.indexOf("<A HREF=") < input.indexOf('>') && input.indexOf('>') < input.indexOf("</a>"))
+		{
+			return true;
+		}
 		return false;
 	}
 	
