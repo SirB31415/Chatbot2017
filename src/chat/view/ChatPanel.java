@@ -10,6 +10,7 @@ import chat.controller.ChatbotController;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
 
 public class ChatPanel extends JPanel
 {
@@ -19,6 +20,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	private JButton checkerButton;
+	private JLabel infoLabel;
 
 	public ChatPanel(ChatbotController appController)
 	{
@@ -30,6 +32,7 @@ public class ChatPanel extends JPanel
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 		checkerButton = new JButton("checker");
+		infoLabel = new JLabel("Type to chat with Musk");
 
 		setupPanel();
 		setupLayout();
