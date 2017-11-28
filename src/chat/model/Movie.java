@@ -14,17 +14,18 @@ public class Movie
 	
 	public Movie(String title)
 	{
-		this.title = "";
-		this.genre = null;
-		this.ratingMPAA = null;
-		this.review = null;
-		this.length = 0;
-		this.releaseDate = null;
-		this.starScore = Double.NaN;
+		this.title = getTitle();
+		this.genre = getGenre();
+		this.ratingMPAA = getRatingMPAA();
+		this.review = getReview();
+		this.length = getLength();
+		this.releaseDate = getReleaseDate();
+		this.starScore = getStarScore();
 	}
 
 	public String getTitle()
 	{
+		
 		return title;
 	}
 
@@ -61,6 +62,7 @@ public class Movie
 
 	public void setTitle(String title)
 	{
+		
 	}
 
 	public void setGenre(String genre)

@@ -4,6 +4,12 @@ import chat.view.PopupDisplay;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.ChatPanel;
+
+/**
+ * Manages the Chatbot application including the model and Frame of the view package.
+ * @author pbra1660
+ * @version 21 November 2017
+ */
 public class ChatbotController
 {
 //this declares that the chatbot and popupdisplay exist
@@ -44,6 +50,21 @@ public class ChatbotController
 		chatbotSays += chatbot.processConversation(input);
 		
 		return chatbotSays;
+	}
+	public String useCheckers(String text)
+	{
+		String response = "";
+		if(chatbot.contentChecker(text))
+		{
+			response += "This text matches the special content\n";
+		}
+		if(chatbot.cuteAnimalMemeChecker(text))
+		{
+			response += "";
+		}
+		//continue with all checkers except length and quit checker
+		
+		return response;
 	}
 	/**
 	 * This makes a private method that returns a String of type chat and takes from the method processConversation to make chatbotSays return  a String of type chat.

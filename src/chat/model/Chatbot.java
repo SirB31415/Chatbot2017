@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Chatbot
 {
-	private List<String> movieList;
+	private List<Movie> movieList;
 	private List<String> shoppingList;
 	private List<String> cuteAnimalMemes;
 	private String [] verbs;
@@ -20,14 +20,14 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = new ArrayList<String>();
+		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = null;
 		this.currentTime = null;
 		this.questions = new String[4];
 		this.username = username;
 		this.content = null;
-		this.intro = null;
+		this.intro = new String("Chatbot is being used to teach us how to ");
 		this.currentTime = null;
 		this.topics = new String[4];
 		this.verbs = new String[4];
@@ -56,13 +56,21 @@ public class Chatbot
 	}
 	private void buildMovieList()
 	{
-		movieList.add("Friday the Thirteenth");
-		movieList.add("Friday the Thirteenth II");
-		movieList.add("Friday the Thirteenth III");
-		movieList.add("Friday the Thirteenth IV");
-		movieList.add("Friday the Thirteenth V");
-		movieList.add("Friday the Thirteenth VI");
-		movieList.add("Friday the Thirteenth VII");
+		Movie m1 = new Movie("Friday the Thirteenth");
+		Movie m2 = new Movie("Friday the Thirteenth II");
+		Movie m3 = new Movie("Friday the Thirteenth III");
+		Movie m4 = new Movie("Friday the Thirteenth IV");
+		Movie m5 = new Movie("Friday the Thirteenth V");
+		Movie m6 = new Movie("Friday the Thirteenth VI");
+		Movie m7 = new Movie("Friday the Thirteenth VII");
+		
+		movieList.add(m1);
+		movieList.add(m2);
+		movieList.add(m3);
+		movieList.add(m4);
+		movieList.add(m5);
+		movieList.add(m6);
+		movieList.add(m7);
 	}
 	
 	private void buildShoppingList()
@@ -81,10 +89,10 @@ public class Chatbot
 	
 	private void buildQuestions()
 	{
-		questions[0] = "What is the meaning of life?";
-		questions[1] = "What is the reason for existence?";
-		questions[2] = "Why is there something instead of nothing?";
-		questions[3] = "Why is Calvin such a terrible human being?";
+		questions[0] = "What is the meaning of life? (hint: 42)";
+		questions[1] = "What is the reason for existence? (hint: 42)";
+		questions[2] = "Why is there something instead of nothing? (hint: 42)";
+		questions[3] = "Why is Calvin such a terrible human being? (hint: 42)";
 	}
 	public String processConversation(String input)
 	{
@@ -111,7 +119,25 @@ public class Chatbot
 		if (random % 2 == 0)
 		{
 			random = (int) (Math.random() * movieList.size());
-			response += "\n" + movieList.get(random),getTitle() + " is a great movie!";
+			response += "\n" + movieList.get(random).getTitle() + " is a great movie!";
+		}
+		
+		int followup = (int) (Math.random() * 5);
+		
+		switch (followup)
+		{
+		case 0:
+			response+= followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 1:
+			response += followUps[2] + "\n";
+			break;
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
 		}
 		
 		return response;
@@ -247,7 +273,7 @@ public class Chatbot
 
 	public String getIntro()
 	{
-		return null;
+		return intro;
 	}
 	
 	public LocalTime getCurrentTime()
