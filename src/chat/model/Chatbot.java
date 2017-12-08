@@ -209,7 +209,11 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		if (shoppingList.contains("eggs") && shoppingList.contains("protein") && shoppingList.contains("hot peppers") && shoppingList.contains("onions") && shoppingList.contains("snacks") && shoppingList.contains("bagel") && shoppingList.contains("crunchy peanut butter") && shoppingList.contains("hot sauce") && shoppingList.contains("juice"))
+		if (shoppingList.contains("slug bait"))
+		{
+			return false;
+		}
+		else if (shoppingList.contains("eggs") && shoppingList.contains("protein") && shoppingList.contains("hot peppers") && shoppingList.contains("onions") && shoppingList.contains("snacks") && shoppingList.contains("bagel") && shoppingList.contains("crunchy peanut butter") && shoppingList.contains("hot sauce") && shoppingList.contains("juice"))
 		{
 			return true;
 		}
