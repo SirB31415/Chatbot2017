@@ -75,10 +75,14 @@ public class Chatbot
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
-		shoppingList.add("veggies");
+		shoppingList.add("eggs");
 		shoppingList.add("protein");
-		shoppingList.add("slug bait");
-		shoppingList.add("gross things");
+		shoppingList.add("hot peppers");
+		shoppingList.add("onions");
+		shoppingList.add("bagel");
+		shoppingList.add("crunchy peanut butter");
+		shoppingList.add("hot sauce");
+		shoppingList.add("juice");
 	}
 	
 	private void buildCuteAnimals()
@@ -205,6 +209,10 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
+		if (shoppingList.contains("eggs") && shoppingList.contains("protein") && shoppingList.contains("hot peppers") && shoppingList.contains("onions") && shoppingList.contains("snacks") && shoppingList.contains("bagel") && shoppingList.contains("crunchy peanut butter") && shoppingList.contains("hot sauce") && shoppingList.contains("juice"))
+		{
+			return true;
+		}
 		return false;
 	}
 	
