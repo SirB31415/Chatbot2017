@@ -257,10 +257,8 @@ public class Chatbot
 				return true;
 			}
 		}
-		else
-		{
+		
 			return false;
-		}
 	}
 	/**
 	 * Checks if content is valid
@@ -277,11 +275,8 @@ public class Chatbot
 			{
 				return true;
 			}
-			else
-			{
-				return false;
-			}
 		}
+		return false;
 	}
 	/**
 	 * checks if the input has an animal
@@ -296,11 +291,8 @@ public class Chatbot
 				{
 						return true;
 				}
-				else
-				{
-						return false;
-				}
 			}
+		return false;
 	}
 	/**
 	 * checks if the list has the shopping items
