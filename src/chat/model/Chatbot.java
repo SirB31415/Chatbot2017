@@ -22,11 +22,11 @@ public class Chatbot
 	{
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
-		this.cuteAnimalMemes = null;
+		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = LocalTime.now();
 		this.questions = new String[4];
 		this.username = username;
-		this.content = null;
+		this.content = "";
 		this.intro = new String("Chatbot is being used to teach us how to ");
 		this.topics = new String[4];
 		this.verbs = new String[4];
@@ -37,8 +37,14 @@ public class Chatbot
 		buildTopics();
 		buildVerbs();
 		buildShoppingList();
+		buildCuteAnimals();
+		buildFollowups();
 	}
-	
+	/**
+	 *
+	 * Built the verbs array. 4 chatbot
+	 *
+	 */
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -46,6 +52,11 @@ public class Chatbot
 		verbs[2] = "am ambivalent about";
 		verbs[3] = "am thinking about";
 	}
+	/**
+	 *
+	 * Built the topics array. 4 chatbot
+	 *
+	 */
 	private void buildTopics()
 	{
 		topics[0] = "Theory of Calvin's Perpetual Virginity";
@@ -53,25 +64,39 @@ public class Chatbot
 		topics[2] = "Yael Getting into Yale";
 		topics[3] = "Parker's Narcissism";
 	}
+	/**
+	 *
+	 * Built the followups array. 4 chatbot
+	 *
+	 */
+	private void buildFollowups()
+	{
+		followUps[0] = "";
+		followUps[1] = "";
+		followUps[2] = "";
+		followUps[3] = "";
+		followUps[4] = "";
+	}
+	/**
+	 *
+	 * Built the movie list arraylist. 4 chatbot
+	 *
+	 */
 	private void buildMovieList()
 	{
-		Movie m1 = new Movie("Friday the Thirteenth");
-		Movie m2 = new Movie("Friday the Thirteenth II");
-		Movie m3 = new Movie("Friday the Thirteenth III");
-		Movie m4 = new Movie("Friday the Thirteenth IV");
-		Movie m5 = new Movie("Friday the Thirteenth V");
-		Movie m6 = new Movie("Friday the Thirteenth VI");
-		Movie m7 = new Movie("Friday the Thirteenth VII");
-		
-		movieList.add(m1);
-		movieList.add(m2);
-		movieList.add(m3);
-		movieList.add(m4);
-		movieList.add(m5);
-		movieList.add(m6);
-		movieList.add(m7);
+		movieList.add(new Movie("Friday the Thirteenth"));
+		movieList.add(new Movie("Friday the Thirteenth II"));
+		movieList.add(new Movie("Friday the Thirteenth III"));
+		movieList.add(new Movie("Friday the Thirteenth IV"));
+		movieList.add(new Movie("Friday the Thirteenth V"));
+		movieList.add(new Movie("Friday the Thirteenth VI"));
+		movieList.add(new Movie("Friday the Thirteenth VII"));
 	}
-	
+	/**
+	 *
+	 * Built the shopping list arraylist. 4 chatbot
+	 *
+	 */
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -84,12 +109,23 @@ public class Chatbot
 		shoppingList.add("hot sauce");
 		shoppingList.add("juice");
 	}
-	
+	/**
+	 *
+	 * Built the cute animals arraylist. 4 chatbot
+	 *
+	 */
 	private void buildCuteAnimals()
 	{
-		
+		cuteAnimalMemes.add("kitty");
+		cuteAnimalMemes.add("puppy");
+		cuteAnimalMemes.add("doge");
+		cuteAnimalMemes.add("goat");
 	}
-	
+	/**
+	 *
+	 * Built the questions array. 4 chatbot
+	 *
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What is the meaning of life? (hint: 42)";
@@ -97,23 +133,15 @@ public class Chatbot
 		questions[2] = "Why is there something instead of nothing? (hint: 42)";
 		questions[3] = "Why is Calvin such a terrible human being? (hint: 42)";
 	}
-	public String processConversation(String input)
-	{
-		String chatbotResponse = "";
-		currentTime = LocalTime.now();
-		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
-		chatbotResponse += "You said:" + "\n" + input + "\n";
-		
-		chatbotResponse += buildChatbotResponse();
-		
-		return chatbotResponse;
-	}
-	
+	/**
+	 * Built the chatbot response with random picking of the above lists.
+	 * @return chatbot response.
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
 		int random = (int) (Math.random() * verbs.length);
-		response += " " + verbs[random];
+		response += verbs[random];
 	
 		random = (int) (Math.random() * topics.length);
 		response += " " +topics[random] + ".\n";
@@ -149,12 +177,32 @@ public class Chatbot
 		
 		return response;
 	}
-	
+	/**
+	 * Gets input and returns the chatbot response.
+	 * @param input in string type
+	 * @return the chatbot response from above.
+	 */
+		public String processConversation(String input)
+	{
+		String chatbotResponse = "";
+		currentTime = LocalTime.now();
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
+		chatbotResponse += "You said:" + "\n" + input + "\n";
+		
+		chatbotResponse += buildChatbotResponse();
+		
+		return chatbotResponse;
+	}
+	/**
+	 * Checks the length of user inputs
+	 * @param input from user in string type.
+	 * @return true or false if the response is long enough
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
 		
-		if (input != null && input.length() > 1)
+		if (input != null && input.length() > 2)
 		{
 				validLength = true;
 		}
@@ -166,7 +214,11 @@ public class Chatbot
 		
 		return validLength;
 	}
-	
+	/**
+	 * This will check if the input is valid HTML
+	 * @param input from user in string type.
+	 * @return true or false depending on if the response is proper HTML
+	 */
 	public boolean htmlTagChecker(String input)
 	{
 		if (!input.contains("<") && !input.contains(">"))
@@ -191,22 +243,70 @@ public class Chatbot
 		}
 		return false;
 	}
-	
+	/**
+	 * Checks if the input is a valid twitter username
+	 * @param input in the form of a string.
+	 * @return true if it is a valid twitter username.
+	 */
 	public boolean userNameChecker(String input)
 	{
-		return false;
+		if (input != null)
+		{
+			if (input.contains("@") && input.length() > 1)
+			{
+				return true;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
-	
+	/**
+	 * Checks if content is valid
+	 * @param contentCheck input
+	 * @return true if content is valid
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
-		return false;
+		if (contentCheck != null)
+		{
+			String[] contentArray = contentCheck.split(" ");
+
+			if(contentArray.length > 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
-	
+	/**
+	 * checks if the input has an animal
+	 * @param user string input
+	 * @return true if the user puts in the proper input.
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		for(String meme: cuteAnimalMemes)
+			{
+				if (input.contains(meme))
+				{
+						return true;
+				}
+				else
+				{
+						return false;
+				}
+			}
 	}
-	
+	/**
+	 * checks if the list has the shopping items
+	 * @param shopping list
+	 * @return true if the list has the items
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		if (shoppingList.contains("slug bait"))
@@ -219,19 +319,35 @@ public class Chatbot
 		}
 		return false;
 	}
-	
+	/**
+	 * checks if the movie titles are valid
+	 * @param movie titles
+	 * @return true if the movie titles are valid.
+	 */
 	public boolean movieTitleChecker(String title)
 	{
-		return false;
+
+		if(title.length() > 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
-	
+	/**
+	 * checks if the movie genre is proper
+	 * @param movie genres
+	 * @return true if the movie genres are proper
+	 */
 	public boolean movieGenreChecker(String genre)
 	{
 		if (genre.equals(""))
 		{
 			return false;
 		}
-		if (genre.equals("Documentary"))
+		if (genre.equals("Horror"))
 		{
 			return true;
 		}
@@ -241,7 +357,11 @@ public class Chatbot
 		}
 		return false;
 	}
-
+	/**
+	 * checks if the quitchecker is valid
+	 * @param quitchecker
+	 * @return true if quitchecker is right
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		if (exitString.equalsIgnoreCase("quit"))
@@ -281,7 +401,7 @@ public class Chatbot
 
 	public String [] getQuestions()
 	{
-		return null;
+		return questions;
 	}
 	
 	public String[] getVerbs()
@@ -316,7 +436,8 @@ public class Chatbot
 	
 	public LocalTime getCurrentTime()
 	{
-		return null;
+		currentTime = LocalTime.now();
+		return currentTime;
 	}
 	
 	public void setUsername(String username)
