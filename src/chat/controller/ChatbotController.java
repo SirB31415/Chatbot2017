@@ -16,7 +16,9 @@ public class ChatbotController
 	private Chatbot chatbot;
 	private PopupDisplay display;
 	private ChatFrame appFrame;
-//this initializes the chatbot and popupdisplay for the Chatbot.java inside the chat.model
+/**
+ *this initializes the chatbot and popupdisplay for the Chatbot.java inside the chat.model aka the constructor
+ */
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Papa Musk");
