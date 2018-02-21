@@ -30,8 +30,8 @@ public class ChatPanel extends JPanel
 		chatButton = new JButton("chat");
 		saveButton = new JButton("Save", new ImageIcon(getClass().getResource("/chat/view/images/save.png")));
 		searchButton = new JButton("Search", new ImageIcon(getClass().getResource("/chat/view/images/search.png")));
-		loadButton = new JButton("Load", new ImageIcon(getClass().getResource("/chat/view/images/search.png")));
-		tweetButton = new JButton("Tweet", new ImageIcon(getClass().getResource("/chat/view/images/search.png")));
+		loadButton = new JButton("Load", new ImageIcon(getClass().getResource("/chat/view/images/load.png")));
+		tweetButton = new JButton("Tweet", new ImageIcon(getClass().getResource("/chat/view/images/tweet.png")));
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
