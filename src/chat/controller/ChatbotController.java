@@ -4,6 +4,7 @@ import chat.view.PopupDisplay;
 import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.ChatPanel;
+import chat.model.CTECTwitter;
 
 /**
  * Manages the Chatbot application including the model and Frame of the view package.
@@ -16,6 +17,7 @@ public class ChatbotController
 	private Chatbot chatbot;
 	private PopupDisplay display;
 	private ChatFrame appFrame;
+	private CTECTwitter myTwitter;
 /**
  *this initializes the chatbot and popupdisplay for the Chatbot.java inside the chat.model aka the constructor
  */
@@ -24,6 +26,7 @@ public class ChatbotController
 		chatbot = new Chatbot("Papa Musk");
 		display = new PopupDisplay();
 		appFrame = new ChatFrame(this);
+		myTwitter = new CTECTwitter(this);
 	}
 	public void start()
 	{
@@ -109,7 +112,7 @@ public class ChatbotController
 	{
 		return appFrame;
 	}
-	public void handleErrors(exception error)
+	public void handleErrors(Exception error)
 	{
 		display.displayText(error.getMessage());
 	}

@@ -5,7 +5,6 @@ import chat.controller.ChatbotController;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
-import twitter4j.Twitter;
 
 public class CTECTwitter
 {
@@ -20,6 +19,17 @@ public class CTECTwitter
 	}
 	public void sendTweet(String textToTweet)
 	{
-		
+		try
+		{
+			chatbotTwitter.updateStatus(textToTweet + "@ChatbotCTEC");
+		}
+		catch(TwitterException tweetError)
+		{
+			appController.handleErrors(tweetError);
+		}
+		catch(Exception otherError)
+		{
+			appController.handleErrors(otherError);
+		}
 	}
 }

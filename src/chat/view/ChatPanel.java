@@ -113,7 +113,7 @@ public class ChatPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				String userText = inputField.getText();
-				
+				appController.tweet(userText);
 			}
 		});
 		searchButton.addActionListener(new ActionListener()
