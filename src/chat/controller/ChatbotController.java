@@ -111,6 +111,10 @@ public class ChatbotController
 	}
 	public void handleErrors(exception error)
 	{
-		popup.displayText(error.getMessage());
+		display.displayText(error.getMessage());
+	}
+	public void tweet(String text)
+	{
+		myTwitter.sendTweet(text);
 	}
 }
